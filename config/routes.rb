@@ -1,6 +1,7 @@
 Helio::Application.routes.draw do
   get "landing_pages/home"
   get "landing_pages/faq"
+  get "landing_pages/about"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
