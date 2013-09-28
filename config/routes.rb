@@ -1,9 +1,13 @@
 Helio::Application.routes.draw do
-  get "users/new"
+  
+  resources :users
+
+  match '/signup', to: 'users#new', via: 'get'
+
   get "landing_pages/faq"
   match '/about',    to: 'landing_pages#about',    via: 'get'
     match '/home',    to: 'landing_pages#home',    via: 'get'
-    root  'landing_pages#home'
+  root  'landing_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
