@@ -13,7 +13,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><%= link_to landing_pages_about_path do %>What is Helio?<% end %></li>
+      <li><%= link_to about_path do %>What is Helio?<% end %></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Discover <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -30,6 +30,7 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to users_new_path do %>Sign Up<% end %></a></li>
       <li><a href="#">FAQ</a></li>
     </ul>
   </div><!-- /.navbar-collapse -->
