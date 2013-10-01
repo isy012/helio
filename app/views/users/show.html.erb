@@ -18,25 +18,18 @@
   <p class="col-md-6">
       <%= @user.bio %>
   </p>
-    <p class="col-md-6">Rating <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span> Purchase | Reserve | Follow Me
+    <p class="col-md-6"> 
+      <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star"></span>
+      <span class="glyphicon glyphicon-star-empty"></span>
+      | Purchase | Reserve | Follow Me
   </p>
 </div>
 </div>
 
-<div class="container">
 
-<div class="row">
-	<div class="col-md-6">
-		    <% if @user.books.any? %>
-      <h3>Books I've authored (<%= @user.books.count %>) <small class="text-primary"><%= link_to "Add", new_user_book_path(@user.id) %></small></h3>
-      <ol class="books">
-         <%= render 'books/showbooks' %>
-      </ol>
-    <% end %>
-	</div>
-</div>
-
-</div>
 
 <div class="container">
 
@@ -68,5 +61,20 @@
           <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
 
     </div>
+
+<div class="container">
+
+<div class="row">
+  <div class="col-md-6">
+        <% if @user.books.any? %>
+      <h3>Other books I've authored (<%= @user.books.count %>) <small class="text-primary"><%= link_to "Add", new_user_book_path(@user.id) %></small></h3>
+      <ol class="books">
+         <%= render 'books/showbooks' %>
+      </ol>
+    <% end %>
+  </div>
+</div>
+
+</div>
 </div>
 
