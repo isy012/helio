@@ -64,7 +64,7 @@
 <div class="row">
   <div class="col-md-12">
         <% if @user.books.any? %>
-      <h3>Books I've authored (<%= @user.books.count %>) </h3>
+      <h3>Recommended Reading (<%= @user.books.count %>) </h3>
       <ol class="books">
          <%= render 'books/showbooks' %>
       </ol>
