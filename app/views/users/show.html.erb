@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-    <h3><%= gravatar_for @user %> <%= link_to @user.name, @user %> <small>Philadelphia, PA</small></h3>
+    <h3><%= gravatar_for @user %> <%= link_to @user.name, @user %> <small>Philadelphia, PA | Twitter Followers: 2032</small></h3>
         
         <small>
           <% if signed_in? %>
@@ -21,7 +21,11 @@
 
 <div class="container">
   <div class="col-md-7">
-     <h2 class="featurette-heading">Recommended Reading</h2><%= @user.bio %>
+     <h2 class="featurette-heading">About Me</h2><%= @user.bio %>
+     <p>
+      <h2>Written Work</h2>
+      - New Voices in American Fiction, Atlantic Monthly, Issue 2.2008 [Excerpt] <p>
+      - Why It's Getting Harder To Find Talent, The Economist, April 2009 [Excerpt]<p>
   </div>
   <div class="col-md-5">
   <div id="myCarousel" class="carousel slide">
@@ -32,17 +36,17 @@
           </ol>
           <div class="carousel-inner">
               <div id="0" class="item active">
-                <img src="http://www.ithp.org/images/music-therapy.jpg"  style="width: 450px; margin: 0 auto">
+                <img src="http://www.sparehed.com/wp-content/uploads/2008/11/Crane,_Jordan_(athlanic_monthly,_200808).jpg"  style="width: 450px; height: 550px; margin: 0 auto">
                 <div class="carousel-caption">
-                  <h4>Gone With The Wind</h4>
-                  <small>Self-Help | 234 pages <p> 3423 views</small>
+                  <h4>Written Work 1</h4>
+                  <small>The Atlantic Monthly | 233 words</small>
                 </div>
               </div>
               <div id="1" class="item">
-                <img src="http://www.destination360.com/contents/pictures/arizona/upper-antelope-canyon-tours.jpg" style="width: 450px; margin: 0 auto">
+                <img src="http://www.idealaunch.com/blog/wp-content/uploads/2009/11/economist-large.jpg" style="width: 450px; height: 550px; margin: 0 auto">
                 <div class="carousel-caption">
-                  <h4>Wealth of Nations</h4>
-                  <small>Non-Fiction | 540 pages <p> 34,234 views</small>
+                  <h4>Written Work 2</h4>
+                  <small>Economics | 2300 words</small>
                 </div>
               </div>
           </div> 
