@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!-- Title of the article is supplied -->
   <title><%= full_title(yield(:title)) %></title>
+
+  <!-- CSS Stylesheets through Asset Pipeline -->
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  
+  <!-- Javascript through Asset Pipeline -->
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <!-- Meta Tags -->
   <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
+  <!-- Render the header -->
 	<%= render 'layouts/header' %>
 
+<!-- Flash Messages on Load -->
     <% flash.each do |key,value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-
+<!-- Render the View -->
 	<%= yield %>
-	     <%= render 'layouts/footer' %>
+
+<!-- Render the Footer -->
+ <%= render 'layouts/footer' %>
+
+<!-- Render any scripts -->
     <%= yield :scripts %>
-    <%= debug(params) if Rails.env.development? %>
+
+<!-- Temporary Debugging Tool -->
+   <%= debug(params) if Rails.env.development? %> 
 </body>
 </html>

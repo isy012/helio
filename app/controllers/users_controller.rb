@@ -1,7 +1,14 @@
+require 'rubygems'
+require 'httparty'
+require 'json'
+require 'open-uri'
+
+
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  include HTTParty
 
   def index
     @users = User.all
@@ -25,16 +32,30 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @books = @user.books.all
+    
+    #qryresponse = open('http://api.crunchbase.com/v/1/company/Facebook.js?api_key=6udxpy3dgsuucmhqpwff4aw8')
+    #qryresponse = open('https://www.edx.org/course/mit/6-00-1x/introduction-computer-science/1122')
+    #@response = qryresponse.readlines.to_s
+    #@response.scan(/)
+    #line_sub = Regexp.new(/\\/)
+    #line_sub = Regexp.new(/\\n", " /)
+    #@response = data
+    #  @response =  data.gsub(line_sub, '')
+    #@response = @response.gsub('\\', '')
+    #@response = JSON.parse(data)
+    #@response = ActiveSupport::JSON.decode(data)
+    
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update 
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile Updated"
-    redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id)
     else
       render 'edit'
     end
@@ -44,6 +65,14 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
     redirect_to users_url
+  end
+
+  def metadata
+      require 'net/http'
+      require 'uri'
+      response = Net::HTTP.get(URI.parse('http://www.google.com'))
+      http = Net::HTTP.new(uri.host, uri.port)
+      @response = http.request(request)
   end
 
 private

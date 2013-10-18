@@ -13,7 +13,9 @@ Helio::Application.routes.draw do
 
   get "landing_pages/faq"
   match '/about',    to: 'landing_pages#about',    via: 'get'
-    match '/home',    to: 'landing_pages#home',    via: 'get'
+  match '/home',    to: 'landing_pages#home',    via: 'get'
+  get "landing_pages/showprimes"
+
   root  'landing_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,22 +1,25 @@
 
-<%= form_for :book, url: user_books_path do |f| %>
-
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<%= form_for :book, url: user_books_path, :html => {:role =>'form'}  do |f| %>
+         <%= render 'shared/error_messages' %>
+  <div class="form-group">
+    <%= f.text_field(:title, class: 'form-control', placeholder: "Title") %>
+  </div>
  
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
 
-    <p>
-    <%= f.label :pages %><br>
-    <%= f.text_field :pages %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+   <div class="form-group">
+    <%= f.text_field(:author, class: 'form-control', placeholder: "Author") %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.text_area(:description, class: 'form-control', placeholder: "Description") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field(:isbn10, class: 'form-control', placeholder: "ISBN")%>
+        <div id="credit_card_number_error"></div>
+  </div>
+  <div>
+    <%= f.submit "Add Read", class: "btn btn-md btn-primary"  %>
+</div>
 <% end %>

@@ -1,8 +1,8 @@
 <% provide(:title, @user.name) %>
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
-    <h3><%= gravatar_for @user %> <%= link_to @user.name, @user %> <small>Brooklyn | Twitter Followers: 663 | www.jessicatom.com</small></h3>
+    <div class="col-md-8">
+    <h3><%= gravatar_for @user %> <%= link_to @user.name, @user %></h3>
         
         <small>
           <% if signed_in? %>
@@ -12,66 +12,38 @@
           <% end %>
           <% end %>
         </small>
-   </div>
-  </div>
-  <hr class="featurette-divider">
-</div>
-
-
-
-<div class="container">
-  <div class="col-md-7">
-     <h2 class="featurette-heading">About Me</h2><%= @user.bio %>
-     <p>
-      <h2>Written Work</h2>
-      - Don't Believe Everything You Eat [Excerpt]<p>
-      - http://jessicatom.launchrock.com/
-  </div>
-
-  <div class="col-md-5">
-  <div id="myCarousel" class="carousel slide">
-          <!-- Carousel items -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-          </ol>
-          <div class="carousel-inner">
-              <div id="0" class="item active">
-                <img src="http://www.sparehed.com/wp-content/uploads/2008/11/Crane,_Jordan_(athlanic_monthly,_200808).jpg"  style="width: 100px; height: 400px; margin: 0 auto">
-              </div>
-              <div id="1" class="item">
-                <img src="http://www.idealaunch.com/blog/wp-content/uploads/2009/11/economist-large.jpg" style="width: 100px; height: 400px; margin: 0 auto">
-            
-              </div>
-          </div> 
-          <!-- Carousel nav -->
-
-          <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
-          <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
-
-    </div>
-
-  </div>
-</div>
+        <%= @user.bio %>
+   </div> <!-- end col-md-9 -->
+  </div> <!-- end row -->
 
 <hr class="featurette-divider">
 
 
-<div class="container">
-
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-lg-5">
+
+    <%= form_for :book, url: user_books_path(@user.id), :html => {:role =>'form'}  do |f| %>
+  <div class="input-group">
+    <%= f.text_field(:title, class: 'form-control input-lg', placeholder: "Title") %>
+ <span class="input-group-btn"><%= f.submit "Recommend", class: "btn btn-primary btn-lg" %>
+</span>
+  </div>
+<% end %>
+
+
         <% if @user.books.any? %>
-      <h3>My Influences (<%= @user.books.count %>) </h3>
+      <h2>Recommended Reading (<%= @user.books.count %>) </h2>
+      <hr class="featurette-divider">
       <ol class="books">
          <%= render 'books/showbooks' %>
       </ol>
     <% end %>
+<!-- <%= @response.inspect %> -->
+
   </div>
 </div>
 
-</div>
-
+ 
 
 </div>
 
