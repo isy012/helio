@@ -1,14 +1,9 @@
+<!-- not using this anymore until Izzy figures out how to render partials correctly -->
 
-  <div class="row">
-    <div class="col-md-8">
-
-        <%= form_for :book, url: user_books_path do |f| %>
-        <%= render 'shared/error_messages' %>
           <div class="form-group">
             <%= f.text_field(:title, class: 'form-control', placeholder: "Title") %>
           </div>
  
-
           <div class="form-group">
             <%= f.text_field(:author, class: 'form-control', placeholder: "Author") %>
           </div>
@@ -26,9 +21,5 @@
           <div>
             <%= f.submit "Save", class: "btn btn-md btn-primary"  %>
           </div>
-
         <% end %>
-
-  </div> <!-- end col-md-8 -->
-  </div><!--end row -->
 

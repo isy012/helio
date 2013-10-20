@@ -41,7 +41,8 @@ class BooksController < ApplicationController
   	end
 
   	 def update 
-    	@book = Book.find(params[:book])
+    	@user = User.find(params[:user_id])
+    	@book = Book.find(params[:id])
     	
     	if @book.update(params[:book].permit(
 				:title, 

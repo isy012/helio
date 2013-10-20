@@ -1,6 +1,38 @@
 <div class="container">
 	
 	<h3>Add Recommended Reading</h3>
-	    <%= render 'form' %>
+
+	  <div class="row">
+    	<div class="col-md-8">
+        <%= form_for :book do |f| %>
+	        <%= render 'shared/error_messages' %>
+
+          <div class="form-group">
+            <%= f.text_field(:title, class: 'form-control', placeholder: "Title") %>
+          </div>
+ 
+          <div class="form-group">
+            <%= f.text_field(:author, class: 'form-control', placeholder: "Author") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.text_area(:description, class: 'form-control', placeholder: "Description") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.text_field(:isbn10, class: 'form-control', placeholder: "ISBN")%>
+            <!-- must be 16 digits. need to update this to 10 or 12 ISBN-->
+          <div id="credit_card_number_error"></div>
+          </div>
+  
+          <div>
+            <%= f.submit "Save", class: "btn btn-md btn-primary"  %>
+          </div>
+        <% end %>
+
+  		</div> <!-- end col-md-8 -->
+  		</div><!--end row -->
+
 		<%= link_to 'Back', user_path(@user.id) %>
+
 </div>
