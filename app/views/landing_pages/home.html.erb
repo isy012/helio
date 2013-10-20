@@ -1,64 +1,103 @@
 <% provide(:title, 'Home') %>
 
 
-
     <!-- Carousel
     ================================================== -->
     
    <div id="myCarousel" class="carousel slide" >
       <div class="carousel-inner">
         <div class="carousel-caption">
-              <p class="lead">Recommended Readings For Courses, Topics and More</p>
-
-              <a class="btn btn-primary" href="about">Coming Soon</a>
+              <p class="pull-left lead">
+                <h1>Recommended Reading.
+                  <br><br>
+                    <h4>For Courses, Subjects, and More</h4><br>
+                      <div>
+                        <%= link_to "Sign Up", "signup", :class => "btn btn-primary btn-lg" %>
+                      </div>                      
+                </h1>
+                  <br>
+            
+              </p>
             </div>
         <div class="item active">
+          <img src="http://empireguides.com/wp-content/uploads/2012/01/The-Morgan-Library-1.jpg">
+          <!--
           <img src="http://ebookfriendly.com/wp-content/uploads/2012/11/Book-iPad-wallpaper-Flying-Letters.jpg" alt="">
+        -->
         </div>
 
       </div>
       
     </div><!-- /.carousel -->
 
-
-
-<!--
 <div class="container">
         <div class="page-header">
-          <h1>Manage the publication of your written work.</h1>
+          <h1>Recommended Reading from University Courses, Professors, and Colleagues.</h1>
         </div>
 <div class="jumbotron">
-  <div class="container">
-  	<div class="row">
-  <div class="col-md-5"><h3>Josephine's passion is the beautiful outdoors.</h3>
-    <p>She's written a book about the history of Antelope Canyon, one of the most photographed scenes in the world.</p><p>
+    <div class="container">
+      <div class="row">
+      <div class="col-md-5"><h3>Choose Your Own Path.</h3>
+        <p>Review courses lesson plans, recommended textbooks, and syllabi from elite institutions and choose a path that's right for you.</p><p>
 
+        <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-md">Example</a></p>
+      </div>
+      <h1>
+      <span class="glyphicon glyphicon-search"></span>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      <span class="glyphicon glyphicon-book"></span>
+      <span class="glyphicon glyphicon-bookmark"></span>
+      <span class="glyphicon glyphicon-pencil"></span>
+      <span class="glyphicon glyphicon-globe"></span>
+      </h1>
+      </div>
+      <div class"row">
+        <div align="center">
+            <div>Be part of the launch.<br>
+               <%= link_to "Sign Up Now", "signup", :class => "btn btn-success btn-lg" %>
+             </div>   
+      </div>
+      </div>
+    </div>
+</div>
 
-  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Learn more</a></p></div>
-  <div class="col-md-3"><img src="http://www.destination360.com/contents/pictures/arizona/upper-antelope-canyon-tours.jpg" class="img-rounded" width="450" height="300"></div>
-</div>
-  </div>
-</div>
-  -->
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Josephine's new book: Great Escapes</h4>
+          <h4 class="modal-title">An Introduction to Corporate Finance</h4>
         </div>
         <div class="modal-body">
-          Hi, my name is Josephine and I have been a photographer and writer for 20 years.<br><br>
-          <p class="text-center">
-          <img src="http://i.istockimg.com/file_thumbview_approve/7743186/2/stock-photo-7743186-portrait-of-young-woman-in-park.jpg" class="img-rounded" width="130" height="90"><br><br>Learn more about Josephine's <a href="http://localhost:3000/users/2">latest books</a>.
-   </p>
+          This course will provide a market-oriented framework for analyzing the major types of financial decisions made by corporations. Lectures and readings will provide an introduction to present value techniques, capital budgeting principles, asset valuation, the operation and efficiency of financial markets, the financial decisions of firms, and derivatives.<br><br>
+          <b>Course Syllabus</b>
+          <br>
+          <br>
+          Week 1:  The Objective Function for Corporations
+          <br>
+          Week 2:  Calculating Present Values
+          <br>
+          Week 3:  The Valuation of Bonds and Stocks,  A Comparison of Investment Criteria
+          <br>
+          Week 4:  Practical Aspects of the NPV Rule
+          <br>
+          Week 5:  Measuring Risk, Statistics Review, A Theory of Asset Pricing: Introduction, Mean-Standard Deviation Analysis, Diversification and Beta 
+          <br>
+          Week 6:  Capital Budgeting and the Capital Asset Pricing Model
+          <br><br>
+          <b>Recommended Reading</b><br><br>
+          We will be discussing the Eurozone crisis as it develops. You may find the following short ebook useful. It can be downloaded for free at http://finance.wharton.upenn.edu/FIC/FICPress. 
+          <br>
+          F. Allen, E. Carletti, and S. Simonelli, Governance for the Eurozone: Integration or Disintegration? (Philadelphia: FIC Press, 2012).
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+</div><!-- /.modal fade -->
 
 
-</div>
+
+  

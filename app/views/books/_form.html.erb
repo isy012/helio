@@ -1,25 +1,34 @@
 
-<%= form_for :book, url: user_books_path, :html => {:role =>'form'}  do |f| %>
-         <%= render 'shared/error_messages' %>
-  <div class="form-group">
-    <%= f.text_field(:title, class: 'form-control', placeholder: "Title") %>
-  </div>
+  <div class="row">
+    <div class="col-md-8">
+
+        <%= form_for :book, url: user_books_path do |f| %>
+        <%= render 'shared/error_messages' %>
+          <div class="form-group">
+            <%= f.text_field(:title, class: 'form-control', placeholder: "Title") %>
+          </div>
  
 
-   <div class="form-group">
-    <%= f.text_field(:author, class: 'form-control', placeholder: "Author") %>
-  </div>
+          <div class="form-group">
+            <%= f.text_field(:author, class: 'form-control', placeholder: "Author") %>
+          </div>
 
+          <div class="form-group">
+            <%= f.text_area(:description, class: 'form-control', placeholder: "Description") %>
+          </div>
 
-  <div class="form-group">
-    <%= f.text_area(:description, class: 'form-control', placeholder: "Description") %>
-  </div>
+          <div class="form-group">
+            <%= f.text_field(:isbn10, class: 'form-control', placeholder: "ISBN")%>
+            <!-- must be 16 digits. need to update this to 10 or 12 ISBN-->
+          <div id="credit_card_number_error"></div>
+          </div>
+  
+          <div>
+            <%= f.submit "Save", class: "btn btn-md btn-primary"  %>
+          </div>
 
-  <div class="form-group">
-    <%= f.text_field(:isbn10, class: 'form-control', placeholder: "ISBN")%>
-        <div id="credit_card_number_error"></div>
-  </div>
-  <div>
-    <%= f.submit "Add Read", class: "btn btn-md btn-primary"  %>
-</div>
-<% end %>
+        <% end %>
+
+  </div> <!-- end col-md-8 -->
+  </div><!--end row -->
+

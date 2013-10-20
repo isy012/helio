@@ -1,49 +1,73 @@
 <% provide(:title, @user.name) %>
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-    <h3><%= gravatar_for @user %> <%= link_to @user.name, @user %></h3>
+
+    <div class="row">
+      <div class="col-md-2">
+          <%= gravatar_for @user %>
+          <small>
+            <% if signed_in? %>
+              <% if current_user.admin? && !current_user?(@user) %>
+                <%= link_to "Delete", @user, method: :delete,
+                                             data: { confirm: "You sure?" } %>
+              <% end %>
+            <% end %>
+          </small>
         
-        <small>
-          <% if signed_in? %>
-          <% if current_user.admin? && !current_user?(@user) %>
-          <%= link_to "Delete", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+      </div> <!-- end col-md -->
+      
+      <div class="col-md-3">
+        <span class="lead"><%= link_to @user.name, @user %></span>
+     </div>
+    </div> <!-- end row -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-left"> <%= @user.bio %></p> 
+      </div>
+    </div><!-- end row -->
+
+  <hr class="featurette-divider">
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_for :book, url: user_books_path(@user.id), :html => {:role =>'form'}  do |f| %>
+          <div class="input-group"><%= f.text_field(:title, class: 'form-control input-lg', placeholder: "Title") %>
+            <span class="input-group-btn"><%= f.submit "Recommend", class: "btn btn-primary btn-lg" %></span>
+          </div>
+        <% end %>
+      </div><!-- end col-lg -->
+    </div><!-- end row -->
+
+    <div class="row">
+      <div class="col-lg-6">
+          <% if @user.books.any? %>
+            <div class="page-header"><h2>Recently Recommended (<%= @user.books.count %>)</h2></div>
+
+            <ol class="books">
+              <%= render 'books/showbooks' %>
+            </ol>
           <% end %>
-          <% end %>
-        </small>
-        <%= @user.bio %>
-   </div> <!-- end col-md-9 -->
-  </div> <!-- end row -->
-
-<hr class="featurette-divider">
-
-
-<div class="row">
-  <div class="col-lg-5">
-
-    <%= form_for :book, url: user_books_path(@user.id), :html => {:role =>'form'}  do |f| %>
-  <div class="input-group">
-    <%= f.text_field(:title, class: 'form-control input-lg', placeholder: "Title") %>
- <span class="input-group-btn"><%= f.submit "Recommend", class: "btn btn-primary btn-lg" %>
-</span>
-  </div>
-<% end %>
-
-
+      </div> <!-- end col-lg-6 -->
+      <div class="col-lg-6">
         <% if @user.books.any? %>
-      <h2>Recommended Reading (<%= @user.books.count %>) </h2>
-      <hr class="featurette-divider">
-      <ol class="books">
-         <%= render 'books/showbooks' %>
-      </ol>
-    <% end %>
-<!-- <%= @response.inspect %> -->
-
-  </div>
-</div>
-
- 
-
-</div>
+          <div class="page-header"><h2>My Shelf</h2></div>
+          <span class="label label-warning">l</span>
+          <span class="label label-warning">l</span>
+          <span class="label label-warning">l</span>
+          <span class="label label-warning">l</span>
+          <span class="label label-warning">l</span>
+          <span class="label label-warning">l</span>
+          <span class="label label-primary">b</span>
+          <span class="label label-primary">b</span>
+          <span class="label label-primary">b</span>
+          <span class="label label-default">a</span>
+          <span class="label label-danger">f</span>
+          <span class="label label-success btn-xs">g</span>
+        <% end %>
+      </div> <!-- end col-lg-6 -->
+    </div> <!-- end of row -->
+    
+</div> <!-- end container -->
 

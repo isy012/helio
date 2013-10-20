@@ -2,7 +2,15 @@ class BooksController < ApplicationController
 
 	def create 
 		@user = User.find(params[:user_id])
-		@book = @user.books.create(params[:book].permit(:title, :description, :pages, :isbn10, :language, :releasedate, :author))
+		@book = @user.books.create(params[:book].permit(
+				:title, 
+				:description, 
+				:pages, 
+				:isbn10, 
+				:language, 
+				:releasedate, 
+				:author
+			))
 		if @book.save 
 		redirect_to user_path(@user.id)
 		else 
@@ -24,9 +32,33 @@ class BooksController < ApplicationController
 
   	def show
   		@user = User.find(params[:user_id])
-  		@books = @user.books.find(params[:id])
+  		@book = @user.books.find(params[:id])
   	end
 
-  	
+  	def edit
+  		@user = User.find(params[:user_id])
+  		@book = @user.books.find(params[:id])
+  	end
+
+  	 def update 
+    	@book = Book.find(params[:book])
+    	
+    	if @book.update(params[:book].permit(
+				:title, 
+				:description, 
+				:pages, 
+				:isbn10, 
+				:language, 
+				:releasedate, 
+				:author
+    			))
+      		flash[:success] = "Read Updated"
+      		redirect_to user_path(@user.id)
+    	else
+      		render 'edit'
+    	end
+  	end
+
+
 
 end

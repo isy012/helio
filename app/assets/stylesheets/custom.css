@@ -1,4 +1,7 @@
 
+    /* Include only if navbar is fixed to the top  */
+    body { padding-top: 50px; }
+
     /* Carousel base class */
     .carousel {
       margin-bottom: 60px;
@@ -7,8 +10,14 @@
 
     .carousel-caption {
       top: 10%;
-      left: 0%;
-      z-index: 10;
+      bottom: 30%;
+      left: 10%;
+      right: 40%;
+      z-index: 5;
+      padding: 5%;
+      padding-top: 5%;
+      background-color: rgba( 0, 0, 0, 0.75);
+      text-align: left;
     }
 
     .carousel img {
@@ -20,62 +29,62 @@
       margin: 0;
     }
 
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  width: 100%;
-  height: 100%;
-  background-color: #777;
-}
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+      width: 100%;
+      height: 100%;
+      background-color: #777;
+    }
 
-/* footer */
+    /* footer */
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999;
-}
+    footer {
+      margin-top: 45px;
+      padding-top: 5px;
+      border-top: 1px solid #eaeaea;
+      color: #999;
+    }
 
-footer a {
-  color: #555;
-}
+    footer a {
+      color: #555;
+    }
 
-footer a:hover {
-  color: #222;
-}
+    footer a:hover {
+      color: #222;
+    }
 
-footer small {
-  float: left;
-}
+    footer small {
+      float: left;
+    }
 
-footer ul {
-  float: right;
-  list-style: none;
-}
+    footer ul {
+      float: right;
+      list-style: none;
+    }
 
-footer ul li {
-  float: left;
-  margin-left: 10px;
-}
-
-
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+    footer ul li {
+      float: left;
+      margin-left: 10px;
+    }
 
 
-/* miscellaneous */
+    /* mixins, variables, etc. */
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+    $grayMediumLight: #eaeaea;
+
+    @mixin box_sizing {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+
+    /* miscellaneous */
+
+    .debug_dump {
+      clear: both;
+      float: left;
+      width: 100%;
+      margin-top: 45px;
+      @include box_sizing;
+    }
