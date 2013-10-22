@@ -2,9 +2,12 @@
 
 <div class="container">
 
+    <div class="row custompaddingtop">
+      <div class="col-md-1"><%= gravatar_for @user %></div>
+    </div>
     <div class="row">
-      <div class="col-md-2">
-          <%= gravatar_for @user %>
+      <div class="col-md-2 custombottom text-left">
+          <%= link_to @user.name, @user %>
           <small>
             <% if signed_in? %>
               <% if current_user.admin? && !current_user?(@user) %>
@@ -13,17 +16,22 @@
               <% end %>
             <% end %>
           </small>
-        
       </div> <!-- end col-md -->
       
-      <div class="col-md-3">
-        <span class="lead"><%= link_to @user.name, @user %></span>
+      <div class="col-md-8 custombottom text-center">
+        <%= link_to "recos", @user_books_path %>
+        <%= link_to "about", @user_books_path %>
+        <%= link_to "follow", @user_books_path %>
+     </div>
+
+     <div class="col-md-2 custombottom text-right">
+      <%= link_to "site" %>
      </div>
     </div> <!-- end row -->
 
     <div class="row">
       <div class="col-md-12">
-        <p class="text-left"> <%= @user.bio %></p> 
+ 
       </div>
     </div><!-- end row -->
 
@@ -43,7 +51,7 @@
     <div class="row">
       <div class="col-lg-6">
           <% if @user.books.any? %>
-            <div class="page-header"><h2>Recently Recommended (<%= @user.books.count %>)</h2></div>
+            <div class="page-header"><h3>Recently Recommended (<%= @user.books.count %>)</h3></div>
 
             <ol class="books">
               <%= render 'books/showbooks' %>
@@ -52,7 +60,7 @@
       </div> <!-- end col-lg-6 -->
       <div class="col-lg-6">
         <% if @user.books.any? %>
-          <div class="page-header"><h2>My Shelf</h2></div>
+          <div class="page-header"><h3>My Shelf</h3></div>
           <span class="label label-warning">l</span>
           <span class="label label-warning">l</span>
           <span class="label label-warning">l</span>
@@ -68,6 +76,5 @@
         <% end %>
       </div> <!-- end col-lg-6 -->
     </div> <!-- end of row -->
-    
 </div> <!-- end container -->
 

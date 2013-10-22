@@ -1,3 +1,7 @@
+    div.custompaddingtop {
+      padding-top:5%;
+      
+      }
 
     /* Include only if navbar is fixed to the top  */
     body { padding-top: 50px; }
