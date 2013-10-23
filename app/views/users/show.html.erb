@@ -61,6 +61,58 @@
       <div class="col-lg-6">
         <% if @user.books.any? %>
           <div class="page-header"><h3>My Shelf</h3></div>
+
+          <div class="col-lg-3">
+          <div class="flip"> 
+            <div class="card"> 
+              <div class="face front"> 
+                <h4><%= @user.books[0].title %></h4>         
+              </div> 
+              <div class="face back"> 
+                <h5>by <%= @user.books[0].author %></h5>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                  <h4><%= @user.books[1].title %></h4>         
+              </div> 
+              <div class="face back"> 
+                <h5>by <%= @user.books[1].author %></h5>
+              </div> 
+            </div> 
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                  <h4><%= @user.books[2].title %></h4>         
+              </div> 
+              <div class="face back"> 
+                <h5>by <%= @user.books[2].author %></h5>
+              </div> 
+            </div> 
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                  <h4><%= @user.books[3].title %></h4>         
+              </div> 
+              <div class="face back"> 
+                <h5>by <%= @user.books[3].author %></h5>
+              </div> 
+            </div> 
+          </div>
+        </div>        
+
           <span class="label label-warning">l</span>
           <span class="label label-warning">l</span>
           <span class="label label-warning">l</span>

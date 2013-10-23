@@ -21,6 +21,18 @@
           <p class="text-muted">"<%= book.description %>"</p>
           <% if book.author != nil %><small><cite title="Source Title"><%= book.author %></cite></small><% end %>
     	 </blockquote>
+
+                 <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                  <h4><%= book.title %></h4>         
+              </div> 
+              <div class="face back"> 
+                <h5>by <%= book.author %></h5>
+              </div> 
+            </div> 
+          </div>
+
           <% end %>
         <span class="label label-warning">Leadership</span></span>
         <span class="label label-primary">Business</span>
