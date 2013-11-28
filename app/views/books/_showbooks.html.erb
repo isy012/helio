@@ -21,7 +21,7 @@
           <p class="text-muted">"<%= book.description %>"</p>
           <% if book.author != nil %><small><cite title="Source Title"><%= book.author %></cite></small><% end %>
     	 </blockquote>
-
+<!--
                  <div class="flip">
             <div class="card"> 
               <div class="face front"> 
@@ -32,19 +32,13 @@
               </div> 
             </div> 
           </div>
-
+-->
           <% end %>
-        <span class="label label-warning">Leadership</span></span>
-        <span class="label label-primary">Business</span>
-        <span class="label label-default">Accounting</span>
-        <span class="label label-danger">Finance</span>
-        <span class="label label-success btn-xs"><span class="glyphicon glyphicon-gift"></span></span>
-<span class="kindleWidget" style="display:inline-block;padding:3px;cursor:pointer;font-size:11px;font-family:Tahoma;white-space:nowrap;line-height:1;"><img style="vertical-align:middle;margin:0;padding:0;border:none;" src="https://d1xnn692s7u6t6.cloudfront.net/white-15.png" /><span style="vertical-align:middle;margin-left:3px;">Kindle</span></span>
+        
         <br>
         <br>
         <br>
     <% end %>
 
 <br>
-    <button type="button" class="btn btn-default btn-sm">
-		<%= link_to ' Add', new_user_book_path(@user.id), :class=>'glyphicon glyphicon-book'%></button>
+		<%= link_to ' Add Recommendation', new_user_book_path(@user.id) %>

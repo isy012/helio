@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   include HTTParty
 
+
   def index
     @users = User.all
   end
@@ -20,31 +21,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
+      UserMailer.welcome_email(@user).deliver
       sign_in @user
       flash[:success] = "Welcome to Helio!"
       redirect_to @user
     else
       render 'new'
     end
-  end
+  end 
 
   def show
   	@user = User.find(params[:id])
     @books = @user.books.all
-    
-    #qryresponse = open('http://api.crunchbase.com/v/1/company/Facebook.js?api_key=6udxpy3dgsuucmhqpwff4aw8')
-    #qryresponse = open('https://www.edx.org/course/mit/6-00-1x/introduction-computer-science/1122')
-    #@response = qryresponse.readlines.to_s
-    #@response.scan(/)
-    #line_sub = Regexp.new(/\\/)
-    #line_sub = Regexp.new(/\\n", " /)
-    #@response = data
-    #  @response =  data.gsub(line_sub, '')
-    #@response = @response.gsub('\\', '')
-    #@response = JSON.parse(data)
-    #@response = ActiveSupport::JSON.decode(data)
-    
   end
 
   def edit
@@ -53,6 +43,7 @@ class UsersController < ApplicationController
 
   def update 
     @user = User.find(params[:id])
+    
     if @user.update_attributes(user_params)
       flash[:success] = "Profile Updated"
       redirect_to user_path(@user.id)
@@ -64,7 +55,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
-    redirect_to users_url
+    redirect_to root_url
   end
 
   def metadata
@@ -83,7 +74,7 @@ private
     end
 
 
-      # Before filters
+   #Before filters
 
     def signed_in_user
       unless signed_in?

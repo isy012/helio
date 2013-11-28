@@ -12,6 +12,7 @@ Helio::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   get "landing_pages/faq"
+ get "landing_pages/swipe"
   match '/about',    to: 'landing_pages#about',    via: 'get'
   match '/home',    to: 'landing_pages#home',    via: 'get'
   get "landing_pages/showprimes"

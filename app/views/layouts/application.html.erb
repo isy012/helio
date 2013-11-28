@@ -17,18 +17,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-
 <body>
   <!-- Render the header -->
 	<%= render 'layouts/header' %>
 
 
-  <div class="container">
     <!-- Flash Messages on Load -->
     <% flash.each do |key,value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-  </div>
+
 
   <!-- Render the View -->
 	<%= yield %>
