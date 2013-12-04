@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'httparty'
+require 'net/http'
 require 'json'
 require 'open-uri'
 
@@ -35,6 +35,12 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @books = @user.books.all
+
+uri = URI.parse('http://api.wine-searcher.com/wine-select-api.lml?Xkey=unvrst930753&Xversion=5&Xwinename=Yquem+Sauternes+Bordeaux+France&Xvintage=2000&Xlocation=usa&Xautoexpand=Y&Xcurrencycode=usd&Xkeyword_mode=X&Xwidesearch=V&Xformat=J')
+http = Net::HTTP.new(uri.host, uri.port)
+request = Net::HTTP::Get.new(uri.request_uri)
+response = http.request(request)
+@result = JSON.parse(response.body)["wine-searcher"]["names"]
   end
 
   def edit

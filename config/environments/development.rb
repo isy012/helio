@@ -18,6 +18,14 @@ Helio::Application.configure do
   config.action_mailer.perform_deliveries = true
   # Newly added 10/2013
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'example.com',
+  user_name:            ENV["GMAIL_USERNAME_DEV"],
+  password:             ENV["GMAIL_SECRET_DEV"],
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -29,5 +37,7 @@ Helio::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+
 
 end

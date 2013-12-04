@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+    <head>  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
+        <link href="css/main.css" type="text/css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <script type="text/javascript" src="../jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+        <title>touchSwipe</title>
+    </head>
+    <body>
+		<div class="container">
+			
+			<script id='code_1'>
+				$(function() {			
+					//Enable swiping...
+					$("#test").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount) {
+							$(this).text("Did you know that a queen bee can lay 800-1500 eggs per day?");	
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+				});
+			</script>
+			
+			<div id="test" class="box">Swipe Left or Right<p><img src="https://pbs.twimg.com/profile_images/378800000006093165/fa23b5a41d4008876e44b0614f08bc1c.jpeg"/> or <img src="http://sellgosell.files.wordpress.com/2009/03/mini-wheat.jpg"></div>
+
+		</div>		
+   </body>
+</html>

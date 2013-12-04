@@ -17,6 +17,7 @@
 
 # Ignore other unneeded files.
 database.yml
+/config/initializers/setup_mail.rb
 doc/
 *.swp
 *~
