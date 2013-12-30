@@ -13,8 +13,9 @@ Helio::Application.routes.draw do
 
   get "landing_pages/faq"
  get "landing_pages/swipe"
-  match '/about',    to: 'landing_pages#about',    via: 'get'
-  match '/home',    to: 'landing_pages#home',    via: 'get'
+  match '/about',   to: 'landing_pages#about',  via: 'get'
+  match '/home',    to: 'landing_pages#home',   via: 'get'
+  match '/faq',     to: 'landing_pages#faq',    via: 'get'
   get "landing_pages/showprimes"
 
   root  'landing_pages#home'

@@ -1,6 +1,7 @@
 body {
  background: #ccc;   
 }
+/*flip */
 .flip {
   -webkit-perspective: 800;
    width: 90px;
@@ -48,6 +49,8 @@ body {
     box-shadow: 3px 3px 4px #000;
 }
 
+
+/*mainpage */
     div.custompaddingtop {
       padding-top:5%;
       

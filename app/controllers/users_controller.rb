@@ -1,7 +1,4 @@
 require 'rubygems'
-require 'net/http'
-require 'json'
-require 'open-uri'
 
 
 class UsersController < ApplicationController
@@ -9,7 +6,6 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   include HTTParty
-
 
   def index
     @users = User.all
@@ -22,25 +18,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.save
+      if @user.save
       UserMailer.welcome_email(@user).deliver
+      UserMailer.user_signedup_email(@user).deliver
       sign_in @user
       flash[:success] = "Welcome to Helio!"
       redirect_to @user
+
     else
-      render 'new'
+
+    render 'new'
     end
   end 
 
   def show
   	@user = User.find(params[:id])
     @books = @user.books.all
-
-uri = URI.parse('http://api.wine-searcher.com/wine-select-api.lml?Xkey=unvrst930753&Xversion=5&Xwinename=Yquem+Sauternes+Bordeaux+France&Xvintage=2000&Xlocation=usa&Xautoexpand=Y&Xcurrencycode=usd&Xkeyword_mode=X&Xwidesearch=V&Xformat=J')
-http = Net::HTTP.new(uri.host, uri.port)
-request = Net::HTTP::Get.new(uri.request_uri)
-response = http.request(request)
-@result = JSON.parse(response.body)["wine-searcher"]["names"]
   end
 
   def edit
@@ -51,6 +44,7 @@ response = http.request(request)
     @user = User.find(params[:id])
     
     if @user.update_attributes(user_params)
+      UserMailer.profile_updated_email(@user).deliver 
       flash[:success] = "Profile Updated"
       redirect_to user_path(@user.id)
     else
@@ -65,11 +59,7 @@ response = http.request(request)
   end
 
   def metadata
-      require 'net/http'
-      require 'uri'
-      response = Net::HTTP.get(URI.parse('http://www.google.com'))
-      http = Net::HTTP.new(uri.host, uri.port)
-      @response = http.request(request)
+
   end
 
 private
@@ -85,7 +75,7 @@ private
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Oops. Please sign in."
+        redirect_to signin_url, notice: "Please sign in."
       end
     end
 
