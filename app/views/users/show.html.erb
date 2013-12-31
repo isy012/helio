@@ -1,8 +1,8 @@
 <% provide(:title, @user.name) %>
 
 <div class="container">
-
     <div class="row custompaddingtop">
+      <div>We are currently working on launching this new service.<p></div>
       <div class="col-md-1"><%= gravatar_for @user %></div>
     </div>
     <div class="row">
@@ -17,15 +17,8 @@
             <% end %>
           </small>
       </div> <!-- end col-md -->
-      
-      <div class="col-md-8 custombottom text-center">
-        <%= link_to "recos", @user_books_path %>
-        <%= link_to "about", @user_books_path %>
-        <%= link_to "follow", @user_books_path %>
-     </div>
-
+     
      <div class="col-md-2 custombottom text-right">
-      <%= link_to "site" %>
      </div>
     </div> <!-- end row -->
 
